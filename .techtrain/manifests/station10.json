@@ -5,7 +5,7 @@
   "tests": [
     {
       "type": "junit-compat",
-      "command": "mvn test -pl internal/station10 -Dtest=Test10",
+      "command": "node internal/runner.js 10",
       "shell": true,
       "reportFile": "internal/station10/target/surefire-reports/TEST-Test10.xml"
     }

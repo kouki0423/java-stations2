@@ -23,12 +23,13 @@ public class Test10 {
         Station10.q1(intList);
 
         StringBuilder expected = new StringBuilder();
-        expected.append("      123\n");
-        expected.append("    4,567\n");
-        expected.append("   89,012\n");
-        expected.append("  345,678\n");
-        expected.append("9,012,345\n");
-        expected.append("       67\n");
+        String br = System.lineSeparator();
+        expected.append("      123" + br);
+        expected.append("    4,567" + br);
+        expected.append("   89,012" + br);
+        expected.append("  345,678" + br);
+        expected.append("9,012,345" + br);
+        expected.append("       67" + br);
         assertEquals(expected.toString(), baos.toString());
     }
 }

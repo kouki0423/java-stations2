@@ -1,4 +1,5 @@
 import org.junit.Test;
+import org.mockito.Answers;
 import org.mockito.MockedStatic;
 
 import java.io.ByteArrayOutputStream;
@@ -17,7 +18,7 @@ public class Test5 {
 
     @Test
     public void processメソッドが呼ばれている() {
-        try (MockedStatic<Station5> station5 = mockStatic(Station5.class)) {
+        try (MockedStatic<Station5> station5 = mockStatic(Station5.class, Answers.CALLS_REAL_METHODS)) {
             station5.when(Station5::process).thenAnswer(i -> null);
             Station5.main(null);
             station5.verify(Station5::process);
@@ -34,7 +35,8 @@ public class Test5 {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(baos));
         Station5.main(null);
-        String expected = "エラーが発生しました\n処理が完了しました\n";
+        String br = System.lineSeparator();
+        String expected = "エラーが発生しました" + br + "処理が完了しました" + br;
         assertEquals(expected, baos.toString());
     }
 }

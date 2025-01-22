@@ -8,7 +8,7 @@ import java.util.Random;
 import static org.mockito.Mockito.doReturn;
 
 public class Test9 {
-
+    String br = System.lineSeparator();
     @Test
     public void 問題1_正しいアイテムリストが出力されている() {
         Random random = Mockito.mock(Random.class);
@@ -22,11 +22,11 @@ public class Test9 {
         String actual = Station9.printOrder(itemList, random);
 
         StringBuilder expected = new StringBuilder();
-        expected.append("りんご 100円\n");
-        expected.append("みかん 50円\n");
-        expected.append("バナナ 80円\n");
-        expected.append("パイナップル 200円\n");
-        expected.append("合計 430円\n");
+        expected.append("りんご 100円" + br);
+        expected.append("みかん 50円" + br);
+        expected.append("バナナ 80円" + br);
+        expected.append("パイナップル 200円" + br);
+        expected.append("合計 430円" + br);
 
         Assert.assertEquals(expected.toString(), actual);
     }
@@ -45,7 +45,7 @@ public class Test9 {
                 expected = "";
             }
             String actual = Station9.printOrder(new ArrayList<>(), random);
-            Assert.assertEquals("nextIntが" + i + "を返した時の結果が違います。", "合計 0円\n" + expected, actual);
+            Assert.assertEquals("nextIntが" + i + "を返した時の結果が違います。", "合計 0円" + br + expected, actual);
         }
     }
 
